@@ -1,0 +1,94 @@
+services:
+  postgresdb:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data-wallet-transaction-engine:/var/lib/postgresql/data
+    networks:
+      - wallet-transaction-engine-network
+    mem_limit: 256M
+    cpus: 1
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 45s
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=postgresdb
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    networks:
+      - wallet-transaction-engine-network
+    mem_limit: 512M
+    cpus: 1
+    depends_on:
+      postgresdb:
+        condition: service_healthy
+
+  redis:
+    image: redis:7.0.11-alpine
+    mem_limit: 128M
+    cpus: 0.5
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data-wallet-transaction-engine:/data
+    networks:
+      - wallet-transaction-engine-network
+
+  prometheus:
+    image: prom/prometheus:v3.0.0
+    mem_limit: 128M
+    cpus: 0.5
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data-wallet-transaction-engine:/prometheus
+    ports:
+      - "9090:9090"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    networks:
+      - wallet-transaction-engine-network
+
+  grafana:
+    image: grafana/grafana:9.4.3
+    mem_limit: 256M
+    cpus: 0.5
+    ports:
+      - "3000:3000"
+    networks:
+      - wallet-transaction-engine-network
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-data-wallet-transaction-engine:/var/lib/grafana
+    depends_on:
+      - prometheus
+
+volumes:
+  postgres-data-wallet-transaction-engine:
+  prometheus-data-wallet-transaction-engine:
+  grafana-data-wallet-transaction-engine:
+  redis-data-wallet-transaction-engine:
+
+networks:
+  wallet-transaction-engine-network:
+    driver: bridge
