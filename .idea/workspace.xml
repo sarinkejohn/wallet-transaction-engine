@@ -4,7 +4,74 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cd7cfb2-38d1-4076-a95f-f68a2422d2a1" name="Changes" comment="" />
+    <list default="true" id="3cd7cfb2-38d1-4076-a95f-f68a2422d2a1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-examples.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-examples.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/MinipaymentEngineApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/MinipaymentEngineApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/config/InstallOpenTelemetryAppender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/config/InstallOpenTelemetryAppender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/config/OpenApiConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/config/OpenApiConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/config/RedisConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/config/RedisConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/controller/ChargeRuleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/controller/ChargeRuleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/controller/CustomerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/controller/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/controller/TransactionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/controller/WalletController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/controller/WalletController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/ChargeRuleRequest$ChargeRuleRequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/ChargeRuleRequest$ChargeRuleRequestBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/ChargeRuleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/ChargeRuleRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/ChargeRuleResponse$ChargeRuleResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/ChargeRuleResponse$ChargeRuleResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/ChargeRuleResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/ChargeRuleResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/CustomerRequest$CustomerRequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/CustomerRequest$CustomerRequestBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/CustomerRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/CustomerRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/CustomerResponse$CustomerResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/CustomerResponse$CustomerResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/CustomerResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/CustomerResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/TransactionRequest$TransactionRequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/TransactionRequest$TransactionRequestBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/TransactionRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/TransactionRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/TransactionResponse$TransactionResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/TransactionResponse$TransactionResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/TransactionResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/TransactionResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/WalletDto$WalletDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/WalletDto$WalletDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/WalletDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/dto/WalletDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/ChargeRule$ChargeRuleBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/ChargeRule$ChargeRuleBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/ChargeRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/ChargeRule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Customer$CustomerBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Customer$CustomerBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Transaction$TransactionBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Transaction$TransactionBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Wallet$WalletBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Wallet$WalletBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Wallet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/entity/Wallet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/enums/ChargeType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/enums/ChargeType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/enums/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/enums/Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/enums/TransactionStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/enums/TransactionStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/enums/TransactionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/enums/TransactionType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/AccountBlockedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/AccountBlockedException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/ConcurrentRequestException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/ConcurrentRequestException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/DuplicateReferenceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/DuplicateReferenceException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/InsufficientFundsException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/InsufficientFundsException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/InvalidAmountException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/InvalidAmountException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/MissingChargeRuleException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/MissingChargeRuleException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/UserNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/exception/UserNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/ChargeRuleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/ChargeRuleMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/ChargeRuleMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/ChargeRuleMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/CustomerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/CustomerMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/CustomerMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/CustomerMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/TransactionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/TransactionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/TransactionMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/TransactionMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/WalletMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/WalletMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/WalletMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/mapper/WalletMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/repository/ChargeRuleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/repository/ChargeRuleRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/repository/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/repository/CustomerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/repository/TransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/repository/TransactionRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/repository/WalletRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/repository/WalletRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/service/ChargeRuleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/service/ChargeRuleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/service/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/service/CustomerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/service/RedisLockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/service/RedisLockService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/service/TransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sarinkejohn/minipaymentengine/service/TransactionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/sarinkejohn/minipaymentengine/mapper/ChargeRuleMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/sarinkejohn/minipaymentengine/mapper/ChargeRuleMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/sarinkejohn/minipaymentengine/mapper/CustomerMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/sarinkejohn/minipaymentengine/mapper/CustomerMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/sarinkejohn/minipaymentengine/mapper/TransactionMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/sarinkejohn/minipaymentengine/mapper/TransactionMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/sarinkejohn/minipaymentengine/mapper/WalletMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/sarinkejohn/minipaymentengine/mapper/WalletMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/sarinkejohn/minipaymentengine/MinipaymentEngineApplicationTests.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,26 +105,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

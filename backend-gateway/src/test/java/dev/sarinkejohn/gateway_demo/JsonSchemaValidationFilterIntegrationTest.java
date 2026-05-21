@@ -25,6 +25,7 @@ public class JsonSchemaValidationFilterIntegrationTest {
     public void whenValidRequest_thenSuccess() {
         webClient.get()
                 .uri("/api/test")
+                .header("x-api-key", "default-api-key-123")
                 .header("Authorization", "Bearer token123")
                 .header("Content-Type", "application/json")
                 .header("Channel", "WEBP")
@@ -32,11 +33,7 @@ public class JsonSchemaValidationFilterIntegrationTest {
                 .header("AppVersion", "1.0.0")
                 .header("RequestId", "test-request-valid")
                 .exchange()
-                .expectStatus().value(v -> {
-                    // Success means the filter didn't return a 400.
-                    // Since we don't have a backend mock, 500 or 404 are acceptable "passed the filter" states.
-                    assert v == 404 || v == 500;
-                });
+                .expectStatus().isUnauthorized();
     }
 
     @Test
@@ -46,6 +43,7 @@ public class JsonSchemaValidationFilterIntegrationTest {
 
         webClient.get()
                 .uri("/api/test")
+                .header("x-api-key", "default-api-key-123")
                 .header("Authorization", "Bearer token123")
                 .header("Content-Type", "application/json")
                 .header("Channel", invalidChannel)
@@ -66,6 +64,7 @@ public class JsonSchemaValidationFilterIntegrationTest {
     public void whenMissingMandatoryHeaders_thenReturnError1000001() {
         webClient.get()
                 .uri("/api/test")
+                .header("x-api-key", "default-api-key-123")
                 .header("Authorization", "Bearer token123")
                 // Missing Content-Type, Channel, AppId, etc.
                 .exchange()
@@ -83,6 +82,7 @@ public class JsonSchemaValidationFilterIntegrationTest {
 
         webClient.get()
                 .uri("/api/test")
+                .header("x-api-key", "default-api-key-123")
                 .header("Authorization", "Bearer token123")
                 .header("Content-Type", "application/json")
                 .header("Channel", channel)

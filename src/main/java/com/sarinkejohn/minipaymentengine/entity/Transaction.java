@@ -13,13 +13,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(
-    name = "transactions",
-    indexes = {
+@Table(name = "transactions", indexes = {
         @Index(name = "idx_idempotency_key", columnList = "idempotency_key", unique = true),
         @Index(name = "idx_customer_id", columnList = "customer_id")
-    }
-)
+})
 public class Transaction {
 
     @Id
@@ -43,7 +40,7 @@ public class Transaction {
     private BigDecimal totalDebit;
 
     @Column(nullable = false)
-    private String currency = "KES";
+    private String currency = "TSH";
 
     @Column(nullable = false)
     private String channel;
@@ -73,7 +70,7 @@ public class Transaction {
             transactionType = TransactionType.PAYMENT;
         }
         if (currency == null) {
-            currency = "KES";
+            currency = "TSH";
         }
     }
 }

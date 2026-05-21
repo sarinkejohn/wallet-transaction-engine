@@ -1,21 +1,11 @@
-# Stage 1: Download the Dependency
-ARG BASE_JRE_IMAGE=eclipse-temurin:21-jre-alpine
-FROM eclipse-temurin:21-jdk-alpine AS dependencies
-RUN apk add --no-cache maven
-WORKDIR /build
-COPY pom.xml .
-RUN mvn dependency:go-offline
-
-# Stage 2: Build the Application
-FROM dependencies AS builder
-COPY src ./src
-RUN mvn clean package -DskipTests
-
-# Stage 3: Create a Lightweight Runtime Image
-FROM eclipse-temurin:21-jre-alpine AS runtime
+# Stage 1: Copy pre-built JAR (no build inside container)
+FROM eclipse-temurin:21-jre-alpine AS package-stage
 WORKDIR /app
+COPY target/*.jar app.jar
 
-ARG JAR_FILE=*.jar
-COPY --from=builder /build/target/${JAR_FILE} app.jar
-
+# Stage 2: Final runtime image
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
+COPY --from=package-stage /app/app.jar app.jar
+EXPOSE 9090
 ENTRYPOINT ["java", "-jar", "app.jar"]

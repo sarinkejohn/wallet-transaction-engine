@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.sarinkejohn.minipaymentengine.MinipaymentEngineApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 37.64 s -- in com.sarinkejohn.minipaymentengine.MinipaymentEngineApplicationTests

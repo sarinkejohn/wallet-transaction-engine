@@ -20,12 +20,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestClient;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -40,8 +40,7 @@ class MinipaymentEngineApplicationTests {
     @LocalServerPort
     private int port;
 
-    @Autowired
-    private TestRestTemplate restTemplate;
+    private RestClient restClient;
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -66,25 +65,31 @@ class MinipaymentEngineApplicationTests {
 
     @BeforeEach
     void setUp() {
+        restClient = RestClient.builder().defaultStatusHandler(status -> true, (req, res) -> {
+        }).build();
         transactionRepository.deleteAll();
         chargeRuleRepository.deleteAll();
         walletRepository.deleteAll();
         customerRepository.deleteAll();
 
         // Setup Active Customer
-        CustomerRequest activeCustomerReq = new CustomerRequest("Active User", "+254711111111", new BigDecimal("1000.00"));
+        CustomerRequest activeCustomerReq = new CustomerRequest("Active User", "+255711111111",
+                new BigDecimal("1000.00"));
         activeCustomerId = customerService.createCustomer(activeCustomerReq).getId();
 
         // Setup Blocked Customer
-        CustomerRequest blockedCustomerReq = new CustomerRequest("Blocked User", "+254722222222", new BigDecimal("500.00"));
+        CustomerRequest blockedCustomerReq = new CustomerRequest("Blocked User", "+255722222222",
+                new BigDecimal("500.00"));
         blockedCustomerId = customerService.createCustomer(blockedCustomerReq).getId();
         Customer blockedCustomer = customerRepository.findById(blockedCustomerId).get();
         blockedCustomer.setStatus(Status.BLOCKED);
         customerRepository.save(blockedCustomer);
 
         // Setup Charge Rules
-        chargeRuleService.createChargeRule(new ChargeRuleRequest("USSD", BigDecimal.ZERO, new BigDecimal("100.00"), ChargeType.FIXED, new BigDecimal("5.00")));
-        chargeRuleService.createChargeRule(new ChargeRuleRequest("USSD", new BigDecimal("100.01"), new BigDecimal("1000.00"), ChargeType.PERCENTAGE, new BigDecimal("2.00")));
+        chargeRuleService.createChargeRule(new ChargeRuleRequest("USSD", BigDecimal.ZERO, new BigDecimal("100.00"),
+                ChargeType.FIXED, new BigDecimal("5.00")));
+        chargeRuleService.createChargeRule(new ChargeRuleRequest("USSD", new BigDecimal("100.01"),
+                new BigDecimal("1000.00"), ChargeType.PERCENTAGE, new BigDecimal("2.00")));
     }
 
     @Test
@@ -99,13 +104,13 @@ class MinipaymentEngineApplicationTests {
         TransactionRequest request = new TransactionRequest(
                 activeCustomerId,
                 new BigDecimal("50.00"),
-                "KES",
+                "TSH",
                 "USSD",
-                "+254733333333",
-                idempotencyKey
-        );
+                "+255733333333",
+                idempotencyKey);
 
-        ResponseEntity<TransactionResponse> response = restTemplate.postForEntity(baseUrl, request, TransactionResponse.class);
+        ResponseEntity<TransactionResponse> response = restClient.post().uri(baseUrl).body(request).retrieve()
+                .toEntity(TransactionResponse.class);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());
@@ -116,7 +121,8 @@ class MinipaymentEngineApplicationTests {
 
         // Verify wallet balance deduction
         Wallet wallet = walletRepository.findByCustomerId(activeCustomerId).get();
-        assertEquals(new BigDecimal("945.00").setScale(2, RoundingMode.HALF_UP), wallet.getBalance().setScale(2, RoundingMode.HALF_UP));
+        assertEquals(new BigDecimal("945.00").setScale(2, RoundingMode.HALF_UP),
+                wallet.getBalance().setScale(2, RoundingMode.HALF_UP));
     }
 
     @Test
@@ -128,13 +134,13 @@ class MinipaymentEngineApplicationTests {
         TransactionRequest request = new TransactionRequest(
                 activeCustomerId,
                 new BigDecimal("1000.00"),
-                "KES",
+                "TSH",
                 "USSD",
-                "+254733333333",
-                idempotencyKey
-        );
+                "+255733333333",
+                idempotencyKey);
 
-        ResponseEntity<String> response = restTemplate.postForEntity(baseUrl, request, String.class);
+        ResponseEntity<String> response = restClient.post().uri(baseUrl).body(request).retrieve()
+                .toEntity(String.class);
 
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertTrue(response.getBody().contains("Insufficient wallet balance"));
@@ -148,23 +154,24 @@ class MinipaymentEngineApplicationTests {
         TransactionRequest request = new TransactionRequest(
                 activeCustomerId,
                 new BigDecimal("50.00"),
-                "KES",
+                "TSH",
                 "USSD",
-                "+254733333333",
-                idempotencyKey
-        );
+                "+255733333333",
+                idempotencyKey);
 
         // First request
-        ResponseEntity<TransactionResponse> response1 = restTemplate.postForEntity(baseUrl, request, TransactionResponse.class);
+        ResponseEntity<TransactionResponse> response1 = restClient.post().uri(baseUrl).body(request).retrieve()
+                .toEntity(TransactionResponse.class);
         assertEquals(HttpStatus.OK, response1.getStatusCode());
 
         // Second request with same idempotency key
-        ResponseEntity<TransactionResponse> response2 = restTemplate.postForEntity(baseUrl, request, TransactionResponse.class);
+        ResponseEntity<TransactionResponse> response2 = restClient.post().uri(baseUrl).body(request).retrieve()
+                .toEntity(TransactionResponse.class);
         assertEquals(HttpStatus.OK, response2.getStatusCode());
-        
+
         // Assert the responses are identical (same ID)
         assertEquals(response1.getBody().getId(), response2.getBody().getId());
-        
+
         // Verify only 1 transaction is created
         assertEquals(1, transactionRepository.count());
     }
@@ -177,13 +184,13 @@ class MinipaymentEngineApplicationTests {
         TransactionRequest request = new TransactionRequest(
                 blockedCustomerId,
                 new BigDecimal("50.00"),
-                "KES",
+                "TSH",
                 "USSD",
-                "+254733333333",
-                idempotencyKey
-        );
+                "+255733333333",
+                idempotencyKey);
 
-        ResponseEntity<String> response = restTemplate.postForEntity(baseUrl, request, String.class);
+        ResponseEntity<String> response = restClient.post().uri(baseUrl).body(request).retrieve()
+                .toEntity(String.class);
 
         assertEquals(HttpStatus.FORBIDDEN, response.getStatusCode());
         assertTrue(response.getBody().contains("BLOCKED"));
@@ -198,13 +205,13 @@ class MinipaymentEngineApplicationTests {
         TransactionRequest request = new TransactionRequest(
                 activeCustomerId,
                 new BigDecimal("5000.00"),
-                "KES",
+                "TSH",
                 "USSD",
-                "+254733333333",
-                idempotencyKey
-        );
+                "+255733333333",
+                idempotencyKey);
 
-        ResponseEntity<String> response = restTemplate.postForEntity(baseUrl, request, String.class);
+        ResponseEntity<String> response = restClient.post().uri(baseUrl).body(request).retrieve()
+                .toEntity(String.class);
 
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertTrue(response.getBody().contains("No charge rule found"));

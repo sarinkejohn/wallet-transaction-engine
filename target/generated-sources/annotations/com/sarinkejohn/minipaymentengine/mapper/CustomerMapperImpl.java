@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-05-21T13:03:13+0300",
-    comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.46.0.v20260407-0427, environment: Java 21.0.10 (Eclipse Adoptium)"
+    date = "2026-05-21T17:43:52+0300",
+    comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.11-ea (Ubuntu)"
 )
 @Component
 public class CustomerMapperImpl implements CustomerMapper {
@@ -22,8 +22,8 @@ public class CustomerMapperImpl implements CustomerMapper {
 
         Customer.CustomerBuilder customer = Customer.builder();
 
-        customer.mobileNumber( request.getMobileNumber() );
         customer.name( request.getName() );
+        customer.mobileNumber( request.getMobileNumber() );
 
         return customer.build();
     }
@@ -36,11 +36,11 @@ public class CustomerMapperImpl implements CustomerMapper {
 
         CustomerResponse.CustomerResponseBuilder customerResponse = CustomerResponse.builder();
 
-        customerResponse.createdAt( customer.getCreatedAt() );
         customerResponse.id( customer.getId() );
-        customerResponse.mobileNumber( customer.getMobileNumber() );
         customerResponse.name( customer.getName() );
+        customerResponse.mobileNumber( customer.getMobileNumber() );
         customerResponse.status( customer.getStatus() );
+        customerResponse.createdAt( customer.getCreatedAt() );
 
         return customerResponse.build();
     }

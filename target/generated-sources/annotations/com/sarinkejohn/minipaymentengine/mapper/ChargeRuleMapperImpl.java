@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-05-21T13:03:12+0300",
-    comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.46.0.v20260407-0427, environment: Java 21.0.10 (Eclipse Adoptium)"
+    date = "2026-05-21T17:43:51+0300",
+    comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.11-ea (Ubuntu)"
 )
 @Component
 public class ChargeRuleMapperImpl implements ChargeRuleMapper {
@@ -23,10 +23,10 @@ public class ChargeRuleMapperImpl implements ChargeRuleMapper {
         ChargeRule.ChargeRuleBuilder chargeRule = ChargeRule.builder();
 
         chargeRule.channel( request.getChannel() );
+        chargeRule.minAmount( request.getMinAmount() );
+        chargeRule.maxAmount( request.getMaxAmount() );
         chargeRule.chargeType( request.getChargeType() );
         chargeRule.chargeValue( request.getChargeValue() );
-        chargeRule.maxAmount( request.getMaxAmount() );
-        chargeRule.minAmount( request.getMinAmount() );
 
         return chargeRule.build();
     }
@@ -39,12 +39,12 @@ public class ChargeRuleMapperImpl implements ChargeRuleMapper {
 
         ChargeRuleResponse.ChargeRuleResponseBuilder chargeRuleResponse = ChargeRuleResponse.builder();
 
+        chargeRuleResponse.id( rule.getId() );
         chargeRuleResponse.channel( rule.getChannel() );
+        chargeRuleResponse.minAmount( rule.getMinAmount() );
+        chargeRuleResponse.maxAmount( rule.getMaxAmount() );
         chargeRuleResponse.chargeType( rule.getChargeType() );
         chargeRuleResponse.chargeValue( rule.getChargeValue() );
-        chargeRuleResponse.id( rule.getId() );
-        chargeRuleResponse.maxAmount( rule.getMaxAmount() );
-        chargeRuleResponse.minAmount( rule.getMinAmount() );
 
         return chargeRuleResponse.build();
     }

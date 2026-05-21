@@ -1,21 +1,11 @@
-# Build Stage
-FROM maven:3.9.9-eclipse-temurin-21 AS builder
-
+# Stage 1: Copy pre-built JAR (no build inside container)
+FROM eclipse-temurin:21-jre-alpine AS package-stage
 WORKDIR /app
+COPY target/*.jar app.jar
 
-COPY pom.xml .
-RUN mvn -B dependency:go-offline
-
-COPY src ./src
-RUN mvn -B clean package -DskipTests
-
-# Runtime Stage
+# Stage 2: Final runtime image
 FROM eclipse-temurin:21-jre-alpine
-
 WORKDIR /app
-
-COPY --from=builder /app/target/minipayment-engine-0.0.1-SNAPSHOT.jar app.jar
-
+COPY --from=package-stage /app/app.jar app.jar
 EXPOSE 8080
-
 ENTRYPOINT ["java", "-jar", "app.jar"]

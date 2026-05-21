@@ -44,7 +44,7 @@ curl -X POST http://localhost:8080/api/transactions \
 -d '{
     "customerId": 1,
     "amount": 250.00,
-    "currency": "TshS",
+    "currency": "TSH,
     "channel": "MOBILE_APP",
     "receiverMobile": "+255799887766",
     "idempotencyKey": "unique-uuid-12345"

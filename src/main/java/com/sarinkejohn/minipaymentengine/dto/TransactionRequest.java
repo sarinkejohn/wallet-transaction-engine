@@ -20,8 +20,8 @@ public class TransactionRequest {
     @DecimalMin(value = "0.0", inclusive = false, message = "Amount must be greater than 0")
     private BigDecimal amount;
 
-    @NotBlank(message = "Currency is required (e.g. KES)")
-    private String currency = "KES";
+    @NotBlank(message = "Currency is required (e.g. TSH)")
+    private String currency = "TSH";
 
     @NotBlank(message = "Channel is required (e.g. MOBILE_APP, USSD, WEB)")
     private String channel;
