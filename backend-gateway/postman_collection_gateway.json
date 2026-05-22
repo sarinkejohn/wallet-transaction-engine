@@ -1,0 +1,149 @@
+{
+	"info": {
+		"name": "Mini Payment Engine - Gateway API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{"key": "Content-Type","value": "application/json"},
+					{"key": "x-api-key","value": "default-api-key-123"},
+					{"key": "Channel","value": "WEBP"},
+					{"key": "AppId","value": "WEBP"},
+					{"key": "AppVersion","value": "1.0.0"},
+					{"key": "RequestId","value": "{{$guid}}"},
+					{"key": "Authorization","value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwiY2hhbm5lbCI6IldFQlAiLCJleHAiOjIwOTQ3OTMwMzZ9.GL-6Plf0nH5X51zHMSCTBeEh1VqySSioiXaxamTPZOc"}
+				],
+				"url": {"raw": "http://localhost:9090/api/customers","protocol": "http","host": ["localhost"],"port": "9090","path": ["api","customers"]},
+				"body": {"mode": "raw","raw": "{\n    \"name\": \"John Doe\",\n    \"mobileNumber\": \"+255712345678\",\n    \"initialBalance\": 50000.00\n}"}
+			}
+		},
+		{
+			"name": "Get Customer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{"key": "x-api-key","value": "default-api-key-123"},
+					{"key": "Channel","value": "WEBP"},
+					{"key": "AppId","value": "WEBP"},
+					{"key": "AppVersion","value": "1.0.0"},
+					{"key": "RequestId","value": "{{$guid}}"},
+					{"key": "Authorization","value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwiY2hhbm5lbCI6IldFQlAiLCJleHAiOjIwOTQ3OTMwMzZ9.GL-6Plf0nH5X51zHMSCTBeEh1VqySSioiXaxamTPZOc"}
+				],
+				"url": {"raw": "http://localhost:9090/api/customers/1","protocol": "http","host": ["localhost"],"port": "9090","path": ["api","customers","1"]}
+			}
+		},
+		{
+			"name": "Get Customer Wallet",
+			"request": {
+				"method": "GET",
+				"header": [
+					{"key": "x-api-key","value": "default-api-key-123"},
+					{"key": "Channel","value": "WEBP"},
+					{"key": "AppId","value": "WEBP"},
+					{"key": "AppVersion","value": "1.0.0"},
+					{"key": "RequestId","value": "{{$guid}}"},
+					{"key": "Authorization","value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwiY2hhbm5lbCI6IldFQlAiLCJleHAiOjIwOTQ3OTMwMzZ9.GL-6Plf0nH5X51zHMSCTBeEh1VqySSioiXaxamTPZOc"}
+				],
+				"url": {"raw": "http://localhost:9090/api/customers/1/wallet","protocol": "http","host": ["localhost"],"port": "9090","path": ["api","customers","1","wallet"]}
+			}
+		},
+		{
+			"name": "Create Charge Rule (Fixed)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{"key": "Content-Type","value": "application/json"},
+					{"key": "x-api-key","value": "default-api-key-123"},
+					{"key": "Channel","value": "WEBP"},
+					{"key": "AppId","value": "WEBP"},
+					{"key": "AppVersion","value": "1.0.0"},
+					{"key": "RequestId","value": "{{$guid}}"},
+					{"key": "Authorization","value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwiY2hhbm5lbCI6IldFQlAiLCJleHAiOjIwOTQ3OTMwMzZ9.GL-6Plf0nH5X51zHMSCTBeEh1VqySSioiXaxamTPZOc"}
+				],
+				"url": {"raw": "http://localhost:9090/api/charge-rules","protocol": "http","host": ["localhost"],"port": "9090","path": ["api","charge-rules"]},
+				"body": {"mode": "raw","raw": "{\n    \"channel\": \"MOBILE_APP\",\n    \"minAmount\": 0.0,\n    \"maxAmount\": 100000.00,\n    \"chargeType\": \"FIXED\",\n    \"chargeValue\": 500.00\n}"}
+			}
+		},
+		{
+			"name": "Get All Charge Rules",
+			"request": {
+				"method": "GET",
+				"header": [
+					{"key": "x-api-key","value": "default-api-key-123"},
+					{"key": "Channel","value": "WEBP"},
+					{"key": "AppId","value": "WEBP"},
+					{"key": "AppVersion","value": "1.0.0"},
+					{"key": "RequestId","value": "{{$guid}}"},
+					{"key": "Authorization","value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwiY2hhbm5lbCI6IldFQlAiLCJleHAiOjIwOTQ3OTMwMzZ9.GL-6Plf0nH5X51zHMSCTBeEh1VqySSioiXaxamTPZOc"}
+				],
+				"url": {"raw": "http://localhost:9090/api/charge-rules","protocol": "http","host": ["localhost"],"port": "9090","path": ["api","charge-rules"]}
+			}
+		},
+		{
+			"name": "Process Transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{"key": "Content-Type","value": "application/json"},
+					{"key": "x-api-key","value": "default-api-key-123"},
+					{"key": "Channel","value": "WEBP"},
+					{"key": "AppId","value": "WEBP"},
+					{"key": "AppVersion","value": "1.0.0"},
+					{"key": "RequestId","value": "{{$guid}}"},
+					{"key": "Authorization","value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwiY2hhbm5lbCI6IldFQlAiLCJleHAiOjIwOTQ3OTMwMzZ9.GL-6Plf0nH5X51zHMSCTBeEh1VqySSioiXaxamTPZOc"}
+				],
+				"url": {"raw": "http://localhost:9090/api/transactions","protocol": "http","host": ["localhost"],"port": "9090","path": ["api","transactions"]},
+				"body": {"mode": "raw","raw": "{\n    \"customerId\": 1,\n    \"transactionType\": \"TRANSFER\",\n    \"amount\": 50000,\n    \"currency\": \"TZS\",\n    \"channel\": \"MOBILE_APP\",\n    \"receiverMobile\": \"255712345678\",\n    \"idempotencyKey\": \"TXN-20260521-0001\"\n}"}
+			}
+		},
+		{
+			"name": "Get Transaction by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{"key": "x-api-key","value": "default-api-key-123"},
+					{"key": "Channel","value": "WEBP"},
+					{"key": "AppId","value": "WEBP"},
+					{"key": "AppVersion","value": "1.0.0"},
+					{"key": "RequestId","value": "{{$guid}}"},
+					{"key": "Authorization","value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwiY2hhbm5lbCI6IldFQlAiLCJleHAiOjIwOTQ3OTMwMzZ9.GL-6Plf0nH5X51zHMSCTBeEh1VqySSioiXaxamTPZOc"}
+				],
+				"url": {"raw": "http://localhost:9090/api/transactions/1","protocol": "http","host": ["localhost"],"port": "9090","path": ["api","transactions","1"]}
+			}
+		},
+		{
+			"name": "Get All Transactions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{"key": "x-api-key","value": "default-api-key-123"},
+					{"key": "Channel","value": "WEBP"},
+					{"key": "AppId","value": "WEBP"},
+					{"key": "AppVersion","value": "1.0.0"},
+					{"key": "RequestId","value": "{{$guid}}"},
+					{"key": "Authorization","value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyMTIzIiwiY2hhbm5lbCI6IldFQlAiLCJleHAiOjIwOTQ3OTMwMzZ9.GL-6Plf0nH5X51zHMSCTBeEh1VqySSioiXaxamTPZOc"}
+				],
+				"url": {"raw": "http://localhost:9090/api/transactions","protocol": "http","host": ["localhost"],"port": "9090","path": ["api","transactions"]}
+			}
+		},
+		{
+			"name": "Get Transactions By Customer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{"key": "x-api-key","value": "default-api-key-123"},
+					{"key": "Channel","value": "WEBP"},
+					{"key": "AppId","value": "WEBP"},
+					{"key": "AppVersion","value": "1.0.0"},
+					{"key": "RequestId","value": "{{$guid}}"},
+					{"key": "Authorization","value": "Bearer YOUR_JWT_TOKEN_HERE"}
+				],
+				"url": {"raw": "http://localhost:9090/api/transactions/customer/1","protocol": "http","host": ["localhost"],"port": "9090","path": ["api","transactions","customer","1"]}
+			}
+		}
+	]
+}

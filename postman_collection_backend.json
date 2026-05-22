@@ -1,0 +1,77 @@
+{
+	"info": {
+		"name": "Mini Payment Engine - Backend API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [{"key": "Content-Type","value": "application/json"}],
+				"url": {"raw": "http://localhost:8080/api/customers","protocol": "http","host": ["localhost"],"port": "8080","path": ["api","customers"]},
+				"body": {"mode": "raw","raw": "{\n    \"name\": \"John Doe\",\n    \"mobileNumber\": \"+255712345678\",\n    \"initialBalance\": 50000.00\n}"}
+			}
+		},
+		{
+			"name": "Get Customer",
+			"request": {
+				"method": "GET",
+				"url": {"raw": "http://localhost:8080/api/customers/1","protocol": "http","host": ["localhost"],"port": "8080","path": ["api","customers","1"]}
+			}
+		},
+		{
+			"name": "Get Customer Wallet",
+			"request": {
+				"method": "GET",
+				"url": {"raw": "http://localhost:8080/api/customers/1/wallet","protocol": "http","host": ["localhost"],"port": "8080","path": ["api","customers","1","wallet"]}
+			}
+		},
+		{
+			"name": "Create Charge Rule (Fixed)",
+			"request": {
+				"method": "POST",
+				"header": [{"key": "Content-Type","value": "application/json"}],
+				"url": {"raw": "http://localhost:8080/api/charge-rules","protocol": "http","host": ["localhost"],"port": "8080","path": ["api","charge-rules"]},
+				"body": {"mode": "raw","raw": "{\n    \"channel\": \"MOBILE_APP\",\n    \"minAmount\": 0.0,\n    \"maxAmount\": 100000.00,\n    \"chargeType\": \"FIXED\",\n    \"chargeValue\": 500.00\n}"}
+			}
+		},
+		{
+			"name": "Get All Charge Rules",
+			"request": {
+				"method": "GET",
+				"url": {"raw": "http://localhost:8080/api/charge-rules","protocol": "http","host": ["localhost"],"port": "8080","path": ["api","charge-rules"]}
+			}
+		},
+		{
+			"name": "Process Transaction",
+			"request": {
+				"method": "POST",
+				"header": [{"key": "Content-Type","value": "application/json"}],
+				"url": {"raw": "http://localhost:8080/api/transactions","protocol": "http","host": ["localhost"],"port": "8080","path": ["api","transactions"]},
+				"body": {"mode": "raw","raw": "{\n    \"customerId\": 1,\n    \"transactionType\": \"TRANSFER\",\n    \"amount\": 50000,\n    \"currency\": \"TZS\",\n    \"channel\": \"MOBILE_APP\",\n    \"receiverMobile\": \"255712345678\",\n    \"idempotencyKey\": \"TXN-20260521-0001\"\n}"}
+			}
+		},
+		{
+			"name": "Get Transaction by ID",
+			"request": {
+				"method": "GET",
+				"url": {"raw": "http://localhost:8080/api/transactions/1","protocol": "http","host": ["localhost"],"port": "8080","path": ["api","transactions","1"]}
+			}
+		},
+		{
+			"name": "Get All Transactions",
+			"request": {
+				"method": "GET",
+				"url": {"raw": "http://localhost:8080/api/transactions","protocol": "http","host": ["localhost"],"port": "8080","path": ["api","transactions"]}
+			}
+		},
+		{
+			"name": "Get Transactions By Customer",
+			"request": {
+				"method": "GET",
+				"url": {"raw": "http://localhost:8080/api/transactions/customer/1","protocol": "http","host": ["localhost"],"port": "8080","path": ["api","transactions","customer","1"]}
+			}
+		}
+	]
+}
